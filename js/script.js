@@ -2,6 +2,14 @@ const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com'
 
 const pathName = window.location.pathname;
 
+const formEventos = document.querySelector('form')
+const inputNome = document.querySelector('#nome')
+const inputBanner = document.querySelector('#banner')
+const inputAtracoes = document.querySelector('#atracoes')
+const inputDescricao = document.querySelector('#descricao')
+const inputData = document.querySelector('#data')
+const inputLotacao = document.querySelector('#lotacao')
+
 if (pathName==='/admin.html'){
     const tabela = document.querySelector('tbody')
     console.log(tabela.innerHTML);
@@ -34,6 +42,36 @@ if (pathName==='/admin.html'){
 
 listarEventos()
 
+}
+
+if (pathName==="/cadastro-evento.html") {
+
+    formEventos.onsubmit = async(evento) => {
+        evento.preventDefault()
+        const novoEvento = {
+            name: inputNome.value,
+            poster:inputBanner.value,
+            attractions:inputAtracoes.value.split(","),
+            description:inputDescricao.value,
+            scheduled:inputData.value,
+            number_tickets:inputLotacao.value
+        }
+        const configuracao = {
+            method: "POST",
+         body: JSON.stringify(novoEvento),
+         headers: {
+            "Content-Type": "application/json",
+         },
+         redirect: "follow",
+
+            
+        } 
+        const resposta = await fetch(`${BASE_URL}/events`, configuracao);
+        window.location.href= 'admin.html'
+        console.log(resposta);
+        const conteudoResposta = await resposta.json()
+        console.log(conteudoResposta);
+    }    
 
 
 }
