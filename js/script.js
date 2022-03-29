@@ -142,3 +142,46 @@ console.log(resposta);
 
 
 }
+
+
+if(pathName === "/excluir-evento.html") {
+
+    const parametros = new URLSearchParams(window.location.search).get("id");
+
+    async function excluirEventos() {
+        const configuracao = {
+            method: 'GET',
+            redirect: 'follow'
+        }   
+        const resposta = await fetch(`${BASE_URL}/events/${parametros}`, configuracao);
+        console.log(resposta);
+
+        const conteudoResposta= await resposta.json()
+        console.log(conteudoResposta)
+
+        inputNome.value = conteudoResposta.name;
+        inputBanner.value = conteudoResposta.poster;
+        inputAtracoes.value = conteudoResposta.attractions;
+        inputDescricao.value = conteudoResposta.description;
+        inputData.value = conteudoResposta.scheduled.split("").slice(0, 16).join("");
+        inputLotacao.value = conteudoResposta.number_tickets;
+
+    }
+
+excluirEventos()
+
+formEventos.onsubmit = async (evento) => {
+    evento.preventDefault();
+    
+    const configuracao = {
+        method: "DELETE",
+        redirect: "follow"
+    };
+
+const resposta = await fetch (`${BASE_URL}/events/${parametros}`, configuracao);
+console.log(resposta);
+    
+}
+
+
+}
