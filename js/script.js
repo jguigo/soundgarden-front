@@ -41,9 +41,10 @@ if (pathName==='/admin.html'){
             <td>${item.name}</td>
             <td>${item.attractions}</td>
             <td>
-                <a href="reservas.html" class="btn btn-dark">ver reservas</a>
-                <a href="editar-evento.html" class="btn btn-secondary">editar</a>
-                <a href="excluir-evento.html" class="btn btn-danger">excluir</a>
+                <a href="reservas.html?id=${item._id}" class="btn btn-dark">ver reservas</a>
+                <a href="editar-evento.html?id=${item._id}" class="btn btn-secondary">editar</a>
+                <a href="excluir-evento.html?id=${item._id}" class="btn btn-danger">excluir</a>
+
             </td>
         </tr>`
 
@@ -83,6 +84,61 @@ if (pathName==="/cadastro-evento.html") {
         const conteudoResposta = await resposta.json()
         console.log(conteudoResposta);
     }    
+
+
+}
+
+if(pathName === "/editar-evento.html") {
+
+    const parametros = new URLSearchParams(window.location.search).get("id");
+
+    async function editarEventos() {
+        const configuracao = {
+            method: 'GET',
+            redirect: 'follow'
+        }   
+        const resposta = await fetch(`${BASE_URL}/events/${parametros}`, configuracao);
+        console.log(resposta);
+
+        const conteudoResposta= await resposta.json()
+        console.log(conteudoResposta)
+
+        inputNome.value = conteudoResposta.name;
+        inputBanner.value = conteudoResposta.poster;
+        inputAtracoes.value = conteudoResposta.attractions;
+        inputDescricao.value = conteudoResposta.description;
+        inputData.value = conteudoResposta.scheduled.split("").slice(0, 16).join("");
+        inputLotacao.value = conteudoResposta.number_tickets;
+
+    }
+
+editarEventos()
+
+formEventos.onsubmit = async (evento) => {
+    evento.preventDefault();
+
+    const editarEvento = {
+        name: inputNome.value,
+        poster:inputBanner.value,
+        attractions:inputAtracoes.value.split(","),
+        description:inputDescricao.value,
+        scheduled:inputData.value,
+        number_tickets:inputLotacao.value
+    };
+    
+    const configuracao = {
+        method: "PUT",
+        body: JSON.stringify(editarEvento),
+        headers : {
+            "Content-Type" : "application/json"
+        },
+        redirect: "follow"
+    };
+
+const resposta = await fetch (`${BASE_URL}/events/${parametros}`, configuracao);
+console.log(resposta);
+    
+}
 
 
 }
