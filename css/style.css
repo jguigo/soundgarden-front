@@ -48,3 +48,23 @@ footer nav ul{
 footer nav ul li  {
     padding: 10px;
 }
+
+#modal{
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #f2f2f2;
+    border: 2px solid black;
+    width: 60vw;
+}
+.supreme-container{
+    filter: blur(1px);
+}
+
+.btn-x{
+    background-color: #C2185B;
+    width: 20px;
+    height: 20px;
+}
