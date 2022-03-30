@@ -68,3 +68,130 @@ footer nav ul li  {
     width: 20px;
     height: 20px;
 }
+
+/* landing--------------------------------------------------------*/
+
+.landing-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.img-slider{
+    position: relative;
+    width: 1200px;
+    height: 700px;
+    margin-top: 60px;
+}
+
+.img-slider .slide{
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    clip-path: circle(0% at 0 50%);
+}
+
+.img-slider .slide.active{
+    clip-path: circle(150% at 0 50%);
+    transition: 2.5s;
+    transition-property: clip-path;
+}
+
+.img-slider .slide img {
+    z-index: 1;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.img-slider .navigation{
+    z-index: 2;
+    position: absolute;
+    display: flex;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.img-slider .navigation .btn {
+    background: rgba(255, 255, 255, 0.363);
+    width: 20px;
+    height: 15px;
+    margin: 25px;
+    cursor: pointer;
+    margin: 50px;
+}
+
+.img-slider .navigation .btn.active{
+    background: #fff;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.363)
+}
+
+@media (max-width: 1220px) {
+    .img-slider{
+        width: 980px;
+        height: 550px;
+    }
+
+    .img-slider .navigation{
+        bottom: 20px;
+    }
+
+    .img-slider .navigation .btn{
+    width: 10px;
+    height: 10px;
+    margin: 30px;
+    }
+}
+
+@media (max-width: 980px) {
+    .img-slider{
+        width: 780px;
+        height: 450px;
+    }
+
+    .img-slider .navigation{
+        bottom: 20px;
+    }
+
+    .img-slider .navigation .btn{
+        width: 8px;
+        height: 8px;
+        margin: 30px;
+        }
+}
+
+@media (max-width: 780px) {
+    .img-slider{
+        width: 560px;
+        height: 320px;
+    }
+
+    .img-slider .navigation{
+        bottom: 10px;
+    }
+
+    .img-slider .navigation .btn{
+        width: 5px;
+        height: 5px;
+        margin: 20px;
+        }
+}
+
+@media (max-width: 580px) {
+    .img-slider{
+        width: 400px;
+        height: 240px;
+    }
+
+    .img-slider .navigation{
+        bottom: 5px;
+    }
+
+    .img-slider .navigation .btn{
+        width: 3px;
+        height: 3px;
+        margin: 10px;
+        margin-bottom: 30px;
+        }
+}
