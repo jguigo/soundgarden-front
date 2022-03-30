@@ -59,9 +59,6 @@ footer nav ul li  {
     border: 2px solid black;
     width: 60vw;
 }
-.supreme-container{
-    filter: blur(1px);
-}
 
 .btn-x{
     background-color: #C2185B;
