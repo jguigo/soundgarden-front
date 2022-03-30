@@ -21,7 +21,7 @@ const formataData = (data) => {
     return dd;
 };
 
-async function listar3() {
+async function listar10() {
     const configuracao = {
         method: 'GET',
         redirect: 'follow'
@@ -30,7 +30,7 @@ async function listar3() {
    
     const conteudoResposta = await resposta.json();
     
-    const eventos3 = conteudoResposta.slice(0, 3);
+    const eventos3 = conteudoResposta.slice(0, 10);
     eventos3.forEach(item => {
         listaEventos.innerHTML+=
         `<article class="evento card p-5 m-3">
@@ -45,7 +45,7 @@ async function listar3() {
 
     })
 }
-listar3();
+listar10();
 
 
 let condition = false;
@@ -107,7 +107,3 @@ formulario.onsubmit = async (event) => {
     const resposta = await fetch(`${BASE_URL}/bookings`, configuracao);
     console.log(resposta);
 }
-
-
-
-
