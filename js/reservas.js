@@ -47,21 +47,3 @@ async function deletarReserva(e) {
     location.reload();
 }
 
-// async function excluirEventos() {
-//     
-//     }   
-//     
-
-//     const conteudoResposta= await resposta.json()
-//     console.log(conteudoResposta)
-
-//     inputNome.value = conteudoResposta.name;
-//     inputBanner.value = conteudoResposta.poster;
-//     inputAtracoes.value = conteudoResposta.attractions;
-//     inputDescricao.value = conteudoResposta.description;
-//     inputData.value = conteudoResposta.scheduled.split("").slice(0, 16).join("");
-//     inputLotacao.value = conteudoResposta.number_tickets;
-
-// }
-
-// excluirEventos()
