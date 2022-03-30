@@ -52,31 +52,8 @@
                     <div class="container text-center">
                         <h2>Próximos eventos</h2>
                     </div>
-                    <div class="container d-flex justify-content-center align-items-center">
-                        <article class="evento card p-5 m-3">
-                            <h2>nome do evento - 05/03/2022</h2>
-                            <h4>Arctic Monkeys, The Kooks, Hiatus Kaiyote</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
-                                dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
-                                nobis in inventore tenetur asperiores.</p>
-                            <a id="btn-reserva" href="#" class="btn btn-primary">reservar ingresso</a>
-                        </article>
-                        <article class="evento card p-5 m-3">
-                            <h2>nome do evento - 05/03/2022</h2>
-                            <h4>Arctic Monkeys, The Kooks, Hiatus Kaiyote</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
-                                dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
-                                nobis in inventore tenetur asperiores.</p>
-                            <a href="#" class="btn btn-primary">reservar ingresso</a>
-                        </article>
-                        <article class="evento card p-5 m-3">
-                            <h2>nome do evento - 05/03/2022</h2>
-                            <h4>Arctic Monkeys, The Kooks, Hiatus Kaiyote</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
-                                dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
-                                nobis in inventore tenetur asperiores.</p>
-                            <a href="#" class="btn btn-primary">reservar ingresso</a>
-                        </article>
+                    <div id ='listaEventos' class="container d-flex justify-content-center align-items-center">
+                        
                     </div>
                     <div class="container text-center">
                         <a href="eventos.html" class="btn btn-secondary">ver todos os eventos</a>
@@ -134,7 +111,7 @@
     </div>
     <div id="modal" style="display: none">
         <div>
-        <h3>Nome do evento</h3>
+        <h3 id="tituloModal">Nome do evento</h3>
         <div class="btn-x">
 
         </div>
@@ -150,12 +127,12 @@
             <div class="mb-3">
                 <label for="lotacao" class="form-label">Ingresso</label>
                 <input type="number" class="form-control" id="lotacao" aria-describedby="atracoes">
-                <small>Ingressos disponíveis:</small>
+                <small id = 'qtdIngressos'>Ingressos disponíveis:</small>
             </div>
             <button type="submit" class="btn btn-primary">Comprar!</button>
         </form>
     </div>
-    <script src="./js/slider.js"></script>
+    <!-- <script src="./js/slider.js"></script> -->
     <script src="./js/main.js"></script>
 </body>
 
