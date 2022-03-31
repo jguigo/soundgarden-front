@@ -6,8 +6,9 @@
     align-items: center;
     position: fixed;
     z-index: 10;
+    text-align: center;
     left: 50%;
-    top: 10%;
+    top: 0%;
     transform: translate(-50%);
     transition: 300ms;
     padding: 5px;

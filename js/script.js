@@ -67,25 +67,25 @@ if (pathName==="/cadastro-evento.html" || pathName === '/soundgarden-front/cadas
 
     formEventos.onsubmit = async(evento) => {
         evento.preventDefault()
-        const novoEvento = {
-            name: inputNome.value,
-            poster:inputBanner.value,
-            attractions:inputAtracoes.value.split(","),
-            description:inputDescricao.value,
-            scheduled:inputData.value,
-            number_tickets:inputLotacao.value
-        }
-        const configuracao = {
-            method: "POST",
-            body: JSON.stringify(novoEvento),
-            headers: {
-                "Content-Type": "application/json",
-            },
-            redirect: "follow",
-            
-            
-        } 
         try{
+            const novoEvento = {
+                name: inputNome.value,
+                poster:inputBanner.value,
+                attractions:inputAtracoes.value.split(","),
+                description:inputDescricao.value,
+                scheduled:inputData.value,
+                number_tickets:inputLotacao.value
+            }
+            const configuracao = {
+                method: "POST",
+                body: JSON.stringify(novoEvento),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                redirect: "follow",
+                
+                
+            } 
             const resposta = await fetch(`${BASE_URL}/events`, configuracao);
             if(resposta.status == 201){
                 feedbackModal.setAttribute('style', 'display:flex');
@@ -162,7 +162,7 @@ if(pathName === "/editar-evento.html" || pathName === '/soundgarden-front/editar
             const resposta = await fetch (`${BASE_URL}/events/${parametros}`, configuracao);
             if(resposta.status == 200){
                 feedbackModal.setAttribute('style', 'display:flex');
-                feedbackH3.innerHTML = 'Edição realizado com sucesso!';
+                feedbackH3.innerHTML = 'Edição realizada com sucesso!';
                 setTimeout(() => feedbackModal.setAttribute('style', 'display:none'),3000)
             }
             if (resposta.status != 200) {
