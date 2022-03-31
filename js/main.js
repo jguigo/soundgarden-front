@@ -15,9 +15,7 @@ const ingressosCliente =  document.querySelector('#lotacao');
 
 const formataData = (data) => {
     let d = data.split('');
-    
-    let dd = d.slice(8,10).join('') + '/' + d.slice(5,7).join('') + '/' + d.slice(0,4).join('');    
-    
+    let dd = d.slice(8,10).join('') + '/' + d.slice(5,7).join('') + '/' + d.slice(0,4).join('');
     return dd;
 };
 
@@ -34,14 +32,11 @@ async function listar3() {
     eventos3.forEach(item => {
         listaEventos.innerHTML+=
         `<article class="evento card p-5 m-3">
-        <h2>${item.name} - ${formataData(item.scheduled)}</h2>
-        <h4>${item.attractions}</h4>
-        <p>${item.description}</p>
-        
-        <button id="btn-reserva" class="btn btn-primary" onclick="exibirModal(this)" eventID="${item._id}">reservar ingresso</butt>
-</button>
-
-    </article>`        
+            <h2>${item.name} - ${formataData(item.scheduled)}</h2>
+            <h4>${item.attractions}</h4>
+            <p>${item.description}</p>
+            <button id="btn-reserva" class="btn btn-primary" onclick="exibirModal(this)" eventID="${item._id}">reservar ingresso</button>
+        </article>`        
 
     })
 }
@@ -74,6 +69,7 @@ const exibirModal = async (e) =>{
         tituloModal.innerHTML = conteudoResposta.name;
         tituloModal.setAttribute('eventID', id );
         qtdIngressos.innerHTML = `Ingressos disponíveis: ${conteudoResposta.number_tickets}`;
+        ingressosCliente.setAttribute('max',conteudoResposta.number_tickets)
 
 }
 
@@ -110,7 +106,3 @@ formulario.onsubmit = async (event) => {
     const resposta = await fetch(`${BASE_URL}/bookings`, configuracao);
     console.log(resposta);
 }
-
-
-
-

@@ -1,0 +1,19 @@
+#modal-feedback{
+    width: 300px;
+    height: 100px;
+    background-color: #C2185B;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 10;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%);
+    transition: 300ms;
+    padding: 5px;
+}
+
+#feedback{
+    color: white;
+}
+
