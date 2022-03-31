@@ -6,7 +6,9 @@ const dadosTabela =document.querySelector('tbody');
 
 
 async function listarEventos() {
-    const parametros = new URLSearchParams(window.location.search).get("id");
+    const parametros = new URLSearchParams(window.location.search).get('id');
+    const nomeDoEvento = new URLSearchParams(window.location.search).get('eventName');
+    tituloEvento.innerHTML = nomeDoEvento
 
     const configuracao = {
         method: 'GET',
@@ -30,7 +32,7 @@ async function listarEventos() {
             <button reservaID='${item._id}' onclick="deletarReserva(this)" class="btn btn-danger">excluir</button>
         </td>
     </tr>`
-
+    
 
     })
 }
