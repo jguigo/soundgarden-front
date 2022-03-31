@@ -21,10 +21,12 @@ const formataData = (data) => {
 };
 
 
-if (pathName==='/admin.html'){
+if (pathName === '/admin.html' || pathName === '/soundgarden-front/admin.html' ){
+
     const tabela = document.querySelector('tbody')
     console.log(tabela.innerHTML);
     async function listarEventos() {
+        try{
         const configuracao = {
             method: 'GET',
             headers: {
@@ -53,16 +55,21 @@ if (pathName==='/admin.html'){
 
 
         })
+        }catch(error){
+            console.log('RequestInfo errada');
+        } 
+        
     }
 
 listarEventos()
 
 }
 
-if (pathName==="/cadastro-evento.html") {
+if (pathName==="/cadastro-evento.html" || pathName === '/soundgarden-front/cadastro-evento.html') {
 
     formEventos.onsubmit = async(evento) => {
         evento.preventDefault()
+        try{
         const novoEvento = {
             name: inputNome.value,
             poster:inputBanner.value,
@@ -82,16 +89,20 @@ if (pathName==="/cadastro-evento.html") {
             
         } 
         const resposta = await fetch(`${BASE_URL}/events`, configuracao);
-        window.location.href= 'admin.html'
         console.log(resposta);
         const conteudoResposta = await resposta.json()
         console.log(conteudoResposta);
+        // window.location.href= 'admin.html'
+    }
+    catch(error){
+        console.log(error)
+    }
     }    
 
 
 }
 
-if(pathName === "/editar-evento.html") {
+if(pathName === "/editar-evento.html" || pathName === '/soundgarden-front/editar-evento.html') {
 
     const parametros = new URLSearchParams(window.location.search).get("id");
 
@@ -150,7 +161,7 @@ console.log(resposta);
 }
 
 
-if(pathName === "/excluir-evento.html") {
+if(pathName === "/excluir-evento.html" || pathName === '/soundgarden-front/excluir-evento.html') {
 
     const parametros = new URLSearchParams(window.location.search).get("id");
 
