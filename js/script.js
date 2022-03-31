@@ -104,7 +104,7 @@ if (pathName==="/cadastro-evento.html" || pathName === '/soundgarden-front/cadas
             }
             if (resposta.status != 201) {
                 feedbackModal.setAttribute('style', 'display:flex');
-                feedbackH3.innerHTML = 'Ops... algo deu errado! Favor preencher todos os campos corertamente'
+                feedbackH3.innerHTML = 'Ops... algo deu errado! Favor preencher todos os campos corretamente.'
                 setTimeout(() => feedbackModal.setAttribute('style', 'display:none'),3000)
             }
         } catch(err){
@@ -139,45 +139,44 @@ if(pathName === "/editar-evento.html" || pathName === '/soundgarden-front/editar
 
     }
 
-editarEventos()
+    editarEventos()
 
-formEventos.onsubmit = async (evento) => {
-    evento.preventDefault();
+    formEventos.onsubmit = async (evento) => {
+        evento.preventDefault();
 
-    const editarEvento = {
-        name: inputNome.value,
-        poster:inputBanner.value,
-        attractions:inputAtracoes.value.split(","),
-        description:inputDescricao.value,
-        scheduled:inputData.value,
-        number_tickets:inputLotacao.value
-    };
-    
-    const configuracao = {
-        method: "PUT",
-        body: JSON.stringify(editarEvento),
-        headers : {
-            "Content-Type" : "application/json"
-        },
-        redirect: "follow"
-    };
-    try{
-        const resposta = await fetch (`${BASE_URL}/events/${parametros}`, configuracao);
-        console.log(resposta);
-        if(resposta.status == 200){
-            feedbackModal.setAttribute('style', 'display:flex');
-            feedbackH3.innerHTML = 'Edição realizado com sucesso!';
-            setTimeout(() => feedbackModal.setAttribute('style', 'display:none'),3000)
+        const editarEvento = {
+            name: inputNome.value,
+            poster:inputBanner.value,
+            attractions:inputAtracoes.value.split(","),
+            description:inputDescricao.value,
+            scheduled:inputData.value,
+            number_tickets:inputLotacao.value
+        };
+        
+        const configuracao = {
+            method: "PUT",
+            body: JSON.stringify(editarEvento),
+            headers : {
+                "Content-Type" : "application/json"
+            },
+            redirect: "follow"
+        };
+        try{
+            const resposta = await fetch (`${BASE_URL}/events/${parametros}`, configuracao);
+            if(resposta.status == 200){
+                feedbackModal.setAttribute('style', 'display:flex');
+                feedbackH3.innerHTML = 'Edição realizado com sucesso!';
+                setTimeout(() => feedbackModal.setAttribute('style', 'display:none'),3000)
+            }
+            if (resposta.status != 200) {
+                feedbackModal.setAttribute('style', 'display:flex');
+                feedbackH3.innerHTML = 'Ops... algo deu errado! Favor preencher todos os campos corretamente.'
+                setTimeout(() => feedbackModal.setAttribute('style', 'display:none'),3000)
+            }
+        } catch(erro){
+            console.log(erro);
         }
-        if (resposta.status != 200) {
-            feedbackModal.setAttribute('style', 'display:flex');
-            feedbackH3.innerHTML = 'Ops... algo deu errado! Favor preencher todos os campos corertamente'
-            setTimeout(() => feedbackModal.setAttribute('style', 'display:none'),3000)
-        }
-    } catch(erro){
-        console.log(erro);
     }
-}
 
 
 }
@@ -196,10 +195,7 @@ if(pathName === "/excluir-evento.html" || pathName === '/soundgarden-front/exclu
             redirect: 'follow'
         }   
         const resposta = await fetch(`${BASE_URL}/events/${parametros}`, configuracao);
-        console.log(resposta);
-
         const conteudoResposta= await resposta.json()
-        console.log(conteudoResposta)
 
         inputNome.value = conteudoResposta.name;
         inputBanner.value = conteudoResposta.poster;
@@ -210,36 +206,37 @@ if(pathName === "/excluir-evento.html" || pathName === '/soundgarden-front/exclu
 
     }
 
-excluirEventos()
+    excluirEventos()
 
-formEventos.onsubmit = async (evento) => {
-    evento.preventDefault();
-    
-    const configuracao = {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-         },
-        redirect: "follow"
-    };
-
-    const resposta = await fetch (`${BASE_URL}/events/${parametros}`, configuracao);
-    console.log(resposta);
-    if(resposta.status == 204){
-        feedbackModal.setAttribute('style', 'display:flex');
-        feedbackH3.innerHTML = 'Evento excluido com sucesso!';
-        setTimeout(() => {
-            feedbackModal.setAttribute('style', 'display:none')
-            window.location.href = '/admin.html'
-        },3000)
+    formEventos.onsubmit = async (evento) => {
+        evento.preventDefault();
+        
+        const configuracao = {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            redirect: "follow"
+        };
+        try{
+            const resposta = await fetch (`${BASE_URL}/events/${parametros}`, configuracao);
+            if(resposta.status == 204){
+                feedbackModal.setAttribute('style', 'display:flex');
+                feedbackH3.innerHTML = 'Evento excluido com sucesso!';
+                setTimeout(() => {
+                    feedbackModal.setAttribute('style', 'display:none')
+                    window.location.href = '/admin.html'
+                },3000)
+            }
+            if (resposta.status != 204) {
+                feedbackModal.setAttribute('style', 'display:flex');
+                feedbackH3.innerHTML = 'Ops... parece que algo deu errado! Tente novamente mais tarde.';
+                setTimeout(() => feedbackModal.setAttribute('style', 'display:none'),3000)
+            }
+        } catch(error){
+            console.log(error);
+        }
     }
-    if (resposta.status != 204) {
-        feedbackModal.setAttribute('style', 'display:flex');
-        feedbackH3.innerHTML = 'Ops... parece que algo deu errado! Tente novamente mais tarde.';
-        setTimeout(() => feedbackModal.setAttribute('style', 'display:none'),3000)
-    }
-    
-}
 
 
 }
