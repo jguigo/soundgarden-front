@@ -35,9 +35,7 @@ if (pathName === '/admin.html' || pathName === '/soundgarden-front/admin.html' )
             redirect: 'follow'
         }   
         const resposta = await fetch(`${BASE_URL}/events`, configuracao);
-        console.log(resposta);
         const conteudoResposta = await resposta.json()
-        console.log(conteudoResposta);
         conteudoResposta.forEach(item => {
             tabela.innerHTML += 
             `<tr>
@@ -89,7 +87,6 @@ if (pathName==="/cadastro-evento.html" || pathName === '/soundgarden-front/cadas
         } 
         try{
             const resposta = await fetch(`${BASE_URL}/events`, configuracao);
-            console.log(resposta.status);
             if(resposta.status == 201){
                 feedbackModal.setAttribute('style', 'display:flex');
                 feedbackH3.innerHTML = 'Cadastro realizado com sucesso!';
@@ -225,7 +222,7 @@ if(pathName === "/excluir-evento.html" || pathName === '/soundgarden-front/exclu
                 feedbackH3.innerHTML = 'Evento excluido com sucesso!';
                 setTimeout(() => {
                     feedbackModal.setAttribute('style', 'display:none')
-                    window.location.href = '/admin.html'
+                    window.location.href = document.referrer
                 },3000)
             }
             if (resposta.status != 204) {
