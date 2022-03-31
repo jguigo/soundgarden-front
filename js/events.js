@@ -24,6 +24,9 @@ const formataData = (data) => {
 async function listar10() {
     const configuracao = {
         method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+         },
         redirect: 'follow'
     }   
     const resposta = await fetch(`${BASE_URL}/events`, configuracao);
@@ -60,6 +63,9 @@ const exibirModal = async (e) =>{
 
         const configuracao = {
             method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+             },
             redirect: 'follow'
         }   
         const resposta = await fetch(`${BASE_URL}/events/${id}`, configuracao);

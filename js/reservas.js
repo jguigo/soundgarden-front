@@ -10,7 +10,9 @@ async function listarEventos() {
 
     const configuracao = {
         method: 'GET',
-  
+        headers: {
+            "Content-Type": "application/json",
+         },
         redirect: 'follow'
     }   
     const resposta = await fetch(`${BASE_URL}/bookings/event/${parametros}`, configuracao);
@@ -39,6 +41,9 @@ async function deletarReserva(e) {
     const id = e.getAttribute('reservaID')
     const configuracao = {
         method: 'DELETE',
+        headers: {
+            "Content-Type": "application/json",
+         },
         redirect: 'follow',
     }
     const resposta = await fetch(`${BASE_URL}/bookings/${id}`, configuracao);

@@ -60,6 +60,9 @@ const exibirModal = async (e) =>{
 
         const configuracao = {
             method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+             },
             redirect: 'follow'
         }   
         const resposta = await fetch(`${BASE_URL}/events/${id}`, configuracao);

@@ -27,6 +27,9 @@ if (pathName==='/admin.html'){
     async function listarEventos() {
         const configuracao = {
             method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+             },
             redirect: 'follow'
         }   
         const resposta = await fetch(`${BASE_URL}/events`, configuracao);
@@ -95,6 +98,9 @@ if(pathName === "/editar-evento.html") {
     async function editarEventos() {
         const configuracao = {
             method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+             },
             redirect: 'follow'
         }   
         const resposta = await fetch(`${BASE_URL}/events/${parametros}`, configuracao);
@@ -151,6 +157,9 @@ if(pathName === "/excluir-evento.html") {
     async function excluirEventos() {
         const configuracao = {
             method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+             },
             redirect: 'follow'
         }   
         const resposta = await fetch(`${BASE_URL}/events/${parametros}`, configuracao);
@@ -175,6 +184,9 @@ formEventos.onsubmit = async (evento) => {
     
     const configuracao = {
         method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+         },
         redirect: "follow"
     };
 
