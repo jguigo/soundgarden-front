@@ -80,10 +80,7 @@ const exibirModal = async (e) =>{
                 redirect: 'follow'
             }   
             const resposta = await fetch(`${BASE_URL}/events/${id}`, configuracao);
-            console.log(resposta);
-
             const conteudoResposta= await resposta.json();
-            console.log(conteudoResposta);
 
             tituloModal.innerHTML = conteudoResposta.name;
             tituloModal.setAttribute('eventID', id );
@@ -118,7 +115,6 @@ formulario.onsubmit = async (event) => {
             
         }   
         const resposta = await fetch(`${BASE_URL}/bookings`, configuracao);
-        console.log(resposta);
         if(resposta.status == 201){
             feedbackModal.setAttribute('style', 'display:flex');
             feedbackH3.innerHTML = 'Reserva realizada com sucesso!';
