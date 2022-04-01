@@ -15,7 +15,7 @@
 <body>
     <div class="container-fluid">
         <div class="row ">
-            <aside class="d-flex flex-column flex-shrink-0 p-3 bg-light col-2">
+            <aside class=" lateral d-flex   p-3 bg-light " >
 
                 <a href="./admin.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                     <svg class="bi me-2" width="40" height="32">
@@ -25,6 +25,7 @@
                         <img src="img/Sound-logo.png" alt="Gama Lounge" class="img-responsive">
                     </span>
                 </a>
+                <div>
                 <p class="text-center">painel administrativo</p>
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
@@ -39,10 +40,10 @@
                         </a>
                     </li>
                 </ul>
-                <hr>
+                <hr></div>
 
             </aside>
-            <main class="col-9  p-5">
+            <main class=" p-5">
                 <div class="my-5">
                     <h1>Gerenciamento de eventos</h1>
 
@@ -52,10 +53,10 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col" style="width:5%">#</th>
+                                <th scope="col" style="width:5%" id="posicao">#</th>
                                 <th scope="col"style="width:10%">Data</th>
                                 <th scope="col"style="width:30%">Titulo</th>
-                                <th scope="col"style="width:30%">Atrações</th>
+                                <th scope="col"style="width:30%" id="atracoes">Atrações</th>
                                 <th scope="col"style="width:25%">Ações</th>
                             </tr>
                         </thead>

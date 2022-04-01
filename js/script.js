@@ -39,10 +39,10 @@ if (pathName === '/admin.html' || pathName === '/soundgarden-front/admin.html' )
         conteudoResposta.forEach(item => {
             tabela.innerHTML += 
             `<tr>
-            <th scope="row">${conteudoResposta.indexOf(item)+1}</th>
+            <th id="posicao" scope="row">${conteudoResposta.indexOf(item)+1}</th>
             <td>${formataData(item.scheduled)}</td>
             <td>${item.name}</td>
-            <td>${item.attractions}</td>
+            <td id="atracoes">${item.attractions}</td>
             <td>
                 <a href="reservas.html?id=${item._id}&eventName=${item.name}" class="btn btn-dark">ver reservas</a>
                 <a href="editar-evento.html?id=${item._id}" class="btn btn-secondary">editar</a>

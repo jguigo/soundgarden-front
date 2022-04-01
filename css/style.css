@@ -4,8 +4,11 @@ body{
 }
 
 .img-responsive {
-    max-width: 30%;
-    
+    max-width: 150px;
+    margin: 0 auto;
+    padding: 0;
+
+
 }
 
 header {
@@ -14,9 +17,7 @@ header {
     width: 100%;
     background-color: #fff;
 }
-aside {
-    min-height: 100vh;
-}
+
 
 .imagem{
     max-width: 90%;
@@ -30,6 +31,17 @@ aside {
 .btn-primary{
     background-color: #C2185B;
     border-color: #C2185B;
+}
+.btn-dark{
+    width: 135px;
+
+}
+.btn-secondary{
+    width: 65px;
+}
+
+.btn-danger{
+    width: 65px;
 }
 
 main.login {
@@ -204,7 +216,16 @@ form{
         }
      .imagem{
          display:none;
-     }   
+     } 
+     #atracoes{
+         display: none;
+     } 
+     .img-responsive {
+        max-width: 100px;
+        margin: 0 auto;
+        padding: 0;  
+    
+    }
     
     }
     
@@ -224,8 +245,17 @@ form{
             margin: 10px;
             margin-bottom: 30px;
         }
+        
+        #posicao{
+            display: none;
+        }
 
         #modal{
             width: 320px;
         }
+        .img-responsive {
+            display: none;       
+        
+        }
+
     }
