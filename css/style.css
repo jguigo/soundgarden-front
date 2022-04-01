@@ -4,7 +4,8 @@ body{
 }
 
 .img-responsive {
-    max-width: 100%;
+    max-width: 30%;
+    
 }
 
 header {
@@ -16,6 +17,11 @@ header {
 aside {
     min-height: 100vh;
 }
+
+.imagem{
+    max-width: 90%;
+}
+
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     background-color: #C2185B;
@@ -37,7 +43,11 @@ section.full{
 }
 
 article.evento {
-    width: 350px;
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    height: 400px;
+    margin:10px;
 }
 
 footer nav ul{
@@ -192,6 +202,9 @@ form{
         height: 5px;
         margin: 20px;
         }
+     .imagem{
+         display:none;
+     }   
     
     }
     
